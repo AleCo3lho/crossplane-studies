@@ -1,0 +1,16 @@
+apiVersion: ec2.aws.upbound.io/v1beta1
+kind: NATGateway
+metadata:
+  name:  dev-natgateway
+spec:
+  forProvider:
+    region: us-east-1
+    allocationIdRef:
+      name: dev-nat-eip
+    connectivityType: public
+    subnetIdRef:
+      name: dev-public-1a
+    tags:
+      "Name": "dev-natgateway"
+  providerConfigRef:
+    name: aws-coelhordev

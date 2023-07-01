@@ -1,0 +1,13 @@
+apiVersion: ec2.aws.upbound.io/v1beta1
+kind: InternetGateway
+metadata:
+  name: dev-internetgateway
+spec:
+  forProvider:
+    region: us-east-1
+    vpcIdRef:
+      name: dev
+    tags:
+      "Name": "dev-internetgateway"
+  providerConfigRef:
+    name: aws-coelhordev

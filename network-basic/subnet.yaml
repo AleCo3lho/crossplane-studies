@@ -1,0 +1,73 @@
+apiVersion: ec2.aws.upbound.io/v1beta1
+kind: Subnet
+metadata:
+  name: dev-public-1a
+spec:
+  forProvider:
+    region: us-east-1
+    availabilityZone: us-east-1a
+    cidrBlock: 172.16.0.0/24
+    vpcIdRef:
+      name: dev
+    mapPublicIpOnLaunch: true
+    tags:
+      "kubernetes.io/role/elb": ""
+      "Name": "dev-public-1a"
+      "PublicSubnet": "true"
+  providerConfigRef:
+    name: aws-coelhordev
+---
+apiVersion: ec2.aws.upbound.io/v1beta1
+kind: Subnet
+metadata:
+  name: dev-public-1b
+spec:
+  forProvider:
+    region: us-east-1
+    availabilityZone: us-east-1b
+    cidrBlock: 172.16.1.0/24
+    vpcIdRef:
+      name: dev
+    mapPublicIpOnLaunch: true
+    tags:
+      "kubernetes.io/role/elb": ""
+      "Name": "dev-public-1b"
+      "PublicSubnet": "true"
+  providerConfigRef:
+    name: aws-coelhordev
+---
+apiVersion: ec2.aws.upbound.io/v1beta1
+kind: Subnet
+metadata:
+  name: dev-private-1a
+spec:
+  forProvider:
+    region: us-east-1
+    availabilityZone: us-east-1a
+    cidrBlock: 172.16.2.0/23
+    vpcIdRef:
+      name: dev
+    tags:
+      "kubernetes.io/role/internal-elb": ""
+      "Name": "dev-private-1a"
+      "PublicSubnet": "false"
+  providerConfigRef:
+    name: aws-coelhordev
+---
+apiVersion: ec2.aws.upbound.io/v1beta1
+kind: Subnet
+metadata:
+  name: dev-private-1b
+spec:
+  forProvider:
+    region: us-east-1
+    availabilityZone: us-east-1b
+    cidrBlock: 172.16.4.0/23
+    vpcIdRef:
+      name: dev
+    tags:
+      "kubernetes.io/role/internal-elb": ""
+      "Name": "dev-private-1b"
+      "PublicSubnet": "false"
+  providerConfigRef:
+    name: aws-coelhordev

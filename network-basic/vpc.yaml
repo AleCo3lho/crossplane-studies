@@ -1,0 +1,14 @@
+apiVersion: ec2.aws.upbound.io/v1beta1
+kind: VPC
+metadata:
+  name: dev
+spec:
+  forProvider:
+    region: us-east-1
+    cidrBlock: 172.16.0.0/16
+    enableDnsSupport: true
+    instanceTenancy: default
+    tags:
+      "Name": "dev"
+  providerConfigRef:
+    name: aws-coelhordev

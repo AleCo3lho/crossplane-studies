@@ -1,0 +1,27 @@
+apiVersion: ec2.aws.upbound.io/v1beta1
+kind: RouteTable
+metadata:
+  name: dev-public-rb
+spec:
+  forProvider:
+    region: us-east-1
+    vpcIdRef:
+      name: dev
+    tags:
+      "Name": "dev-public-rb"
+  providerConfigRef:
+    name: aws-coelhordev
+---
+apiVersion: ec2.aws.upbound.io/v1beta1
+kind: RouteTable
+metadata:
+  name: dev-private-rb
+spec:
+  forProvider:
+    region: us-east-1
+    vpcIdRef:
+      name: dev
+    tags:
+      "Name": "dev-private-rb"
+  providerConfigRef:
+    name: aws-coelhordev

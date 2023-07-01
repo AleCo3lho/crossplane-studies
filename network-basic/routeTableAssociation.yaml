@@ -1,0 +1,55 @@
+apiVersion: ec2.aws.upbound.io/v1beta1
+kind: RouteTableAssociation
+metadata:
+  name: dev-public-rta-1a
+spec:
+  forProvider:
+    region: us-east-1
+    routeTableIdRef:
+      name: dev-public-rb
+    subnetIdRef:
+      name: dev-public-1a
+  providerConfigRef:
+    name: aws-coelhordev
+---
+apiVersion: ec2.aws.upbound.io/v1beta1
+kind: RouteTableAssociation
+metadata:
+  name: dev-public-rta-1b
+spec:
+  forProvider:
+    region: us-east-1
+    routeTableIdRef:
+      name: dev-public-rb
+    subnetIdRef:
+      name: dev-public-1b
+  providerConfigRef:
+    name: aws-coelhordev
+---
+apiVersion: ec2.aws.upbound.io/v1beta1
+kind: RouteTableAssociation
+metadata:
+  name: dev-private-rta-1a
+spec:
+  forProvider:
+    region: us-east-1
+    routeTableIdRef:
+      name: dev-private-rb
+    subnetIdRef:
+      name: dev-private-1a
+  providerConfigRef:
+    name: aws-coelhordev
+---
+apiVersion: ec2.aws.upbound.io/v1beta1
+kind: RouteTableAssociation
+metadata:
+  name: dev-private-rta-1b
+spec:
+  forProvider:
+    region: us-east-1
+    routeTableIdRef:
+      name: dev-private-rb
+    subnetIdRef:
+      name: dev-private-1b
+  providerConfigRef:
+    name: aws-coelhordev

@@ -1,0 +1,29 @@
+apiVersion: ec2.aws.upbound.io/v1beta1
+kind: Route
+metadata:
+  name: dev-private-route
+spec:
+  forProvider:
+    region: us-east-1
+    routeTableIdRef:
+      name: dev-private-rb
+    destinationCidrBlock: 0.0.0.0/0
+    natGatewayIdRef:
+      name: dev-natgateway
+  providerConfigRef:
+    name: aws-coelhordev
+---
+apiVersion: ec2.aws.upbound.io/v1beta1
+kind: Route
+metadata:
+  name: dev-public-route
+spec:
+  forProvider:
+    region: us-east-1
+    routeTableIdRef:
+      name: dev-public-rb
+    destinationCidrBlock: 0.0.0.0/0
+    gatewayIdRef:
+      name: dev-internetgateway
+  providerConfigRef:
+    name: aws-coelhordev
